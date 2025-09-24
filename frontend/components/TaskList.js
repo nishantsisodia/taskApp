@@ -79,7 +79,7 @@ const containerClasses = `rounded-xl shadow-xl p-4 space-y-4 transition-colors d
           <div className="flex-1">
             <input
               type="text"
-              placeholder="Search tasks..."
+              placeholder="Search by title or description"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className={inputClasses}
@@ -110,7 +110,7 @@ const containerClasses = `rounded-xl shadow-xl p-4 space-y-4 transition-colors d
       </div>
 
       {/* Task Items */}
-      <div className="space-y-4">
+      <div className="space-y-4 overflow-y-auto max-h-[65vh]">
         {filteredTasks.map(task => (
           <div key={task._id} className={`${containerClasses} p-6`}>
             <div className="flex justify-between items-start">
