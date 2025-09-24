@@ -28,7 +28,7 @@ const TaskList = ({ tasks: allTasks, onTaskUpdated, onTaskDeleted }) => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.put(
-        `${process.env.BACKEND_URL}/api/tasks/${taskId}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}api/tasks/${taskId}`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );

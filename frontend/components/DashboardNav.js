@@ -2,16 +2,24 @@
 import { useTheme } from 'next-themes';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 const DashboardNav = ({ user }) => {
   const { theme, setTheme } = useTheme();
   const router = useRouter();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     router.replace('/login');
   };
+
+  if (!mounted) return null; // SSR me kuch render mat karo
 
   const navBg = theme === 'light' ? 'bg-white/80 border-gray-200' : 'bg-gray-900/80 border-gray-700';
   const textColor = theme === 'light' ? 'text-gray-700' : 'text-gray-300';
