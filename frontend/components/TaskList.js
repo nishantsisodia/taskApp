@@ -60,10 +60,11 @@ const TaskList = ({ tasks: allTasks, onTaskUpdated, onTaskDeleted }) => {
     return theme === 'light' ? 'bg-gray-100 text-gray-800' : 'bg-gray-700 text-gray-300';
   };
 
-  const containerClasses = `rounded-xl shadow-xl p-4 space-y-4 transition-colors duration-300 ${
-    theme === 'light' ? 'bg-white/80' : 'bg-gray-800/80'
-  }`;
-
+const containerClasses = `rounded-xl shadow-xl p-4 space-y-4 transition-colors duration-300 ${
+  theme === 'light'
+    ? 'bg-white/80 text-gray-800'  // light bg → dark text
+    : 'bg-gray-800/80 text-white'  // dark bg → white text
+}`;
   const inputClasses = `w-full px-3 py-2 border rounded-lg text-sm shadow-sm focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 ${
     theme === 'light' ? 'bg-white border-gray-300 text-gray-800 placeholder-gray-400' : 'bg-gray-700 border-gray-600 text-white placeholder-gray-400'
   }`;
