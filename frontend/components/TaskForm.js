@@ -21,7 +21,8 @@ const TaskForm = ({ onTaskAdded }) => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.post(
-        'http://localhost:5000/api/tasks',
+
+         `${process.env.BACKEND_URL}api/tasks`,
         formData,
         { headers: { Authorization: `Bearer ${token}` } }
       );

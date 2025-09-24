@@ -20,7 +20,8 @@ const RegisterForm = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        'http://localhost:5000/api/auth/register',
+
+         `${process.env.BACKEND_URL}api/auth/register`,
         formData
       );
       localStorage.setItem('token', response.data.token);

@@ -20,7 +20,7 @@ const LoginForm = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        'http://localhost:5000/api/auth/login',
+        `${process.env.BACKEND_URL}api/auth/login`,
         formData
       );
       localStorage.setItem('token', response.data.token);
