@@ -36,6 +36,8 @@ const TaskList = ({ tasks: allTasks, onTaskUpdated, onTaskDeleted }) => {
       toast.success('Task status updated!');
     } catch {
       toast.error('Failed to update task status');
+
+
     }
   };
 
@@ -44,7 +46,7 @@ const TaskList = ({ tasks: allTasks, onTaskUpdated, onTaskDeleted }) => {
 
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`${process.env.BACKEND_URL}/api/tasks/${taskId}`, {
+      await axios.delete(`${process.env.NEXT_PUBLIC_BACKEND_URL}api/tasks/${taskId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       onTaskDeleted(taskId);
